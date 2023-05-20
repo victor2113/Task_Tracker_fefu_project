@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Task_trecker
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для AuthWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthWindow : Window
     {
-        public MainWindow()
+        public AuthWindow()
         {
             InitializeComponent();
         }
@@ -43,12 +42,10 @@ namespace Task_trecker
             }
         }
 
-        private void Button_Reg_Click(object sender, RoutedEventArgs e)
+        private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = textBoxLogin.Text.Trim();
             string password = passBox.Password.Trim();
-            string password_2 = passBox_2.Password.Trim();
-            string email = textBoxEmail.Text.Trim().ToLower();
 
             if (login.Length < 5)
             {
@@ -60,35 +57,21 @@ namespace Task_trecker
                 passBox.ToolTip = "Некорректный пароль!";
                 passBox.Foreground = Brushes.Red;
             }
-            else if (password != password_2)
-            {
-                passBox_2.ToolTip = "Пароли не совпадают!";
-                passBox_2.Foreground = Brushes.Red;
-            }
-            else if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
-            {
-                textBoxEmail.ToolTip = "Некорректный Email!";
-                textBoxEmail.Foreground = Brushes.Red;
-            }
             else
             {
                 textBoxLogin.ToolTip = null;
                 textBoxLogin.Foreground = Brushes.Black;
                 passBox.ToolTip = null;
                 passBox.Foreground = Brushes.Black;
-                passBox_2.ToolTip = null;
-                passBox_2.Foreground = Brushes.Black;
-                textBoxEmail.ToolTip = null;
-                textBoxEmail.Foreground = Brushes.Black;
 
                 MessageBox.Show("Все круто");
             }
         }
 
-        private void Button_Window_Auth_Click(object sender, RoutedEventArgs e)
+        private void Button_Window_Reg_Click(object sender, RoutedEventArgs e)
         {
-            AuthWindow authWindow = new AuthWindow();
-            authWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             Close();
         }
     }
