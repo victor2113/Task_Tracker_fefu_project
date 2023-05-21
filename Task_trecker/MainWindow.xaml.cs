@@ -49,38 +49,54 @@ namespace Task_trecker
             string password = passBox.Password.Trim();
             string password_2 = passBox_2.Password.Trim();
             string email = textBoxEmail.Text.Trim().ToLower();
+            int i = 4;
 
             if (login.Length < 5)
             {
                 textBoxLogin.ToolTip = "Некорректный логин!";
                 textBoxLogin.Foreground = Brushes.Red;
             }
-            else if (password.Length < 8)
+            else
+            {
+                textBoxLogin.ToolTip = null;
+                textBoxLogin.Foreground = Brushes.Black;
+                i--;
+            }
+            if (password.Length < 8)
             {
                 passBox.ToolTip = "Некорректный пароль!";
                 passBox.Foreground = Brushes.Red;
             }
-            else if (password != password_2)
+            else
+            {
+                passBox.ToolTip = null;
+                passBox.Foreground = Brushes.Black;
+                i--;
+            }
+            if (password != password_2)
             {
                 passBox_2.ToolTip = "Пароли не совпадают!";
                 passBox_2.Foreground = Brushes.Red;
             }
-            else if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
+            else
+            {
+                passBox_2.ToolTip = null;
+                passBox_2.Foreground = Brushes.Black;
+                i--;
+            }
+            if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
             {
                 textBoxEmail.ToolTip = "Некорректный Email!";
                 textBoxEmail.Foreground = Brushes.Red;
             }
             else
             {
-                textBoxLogin.ToolTip = null;
-                textBoxLogin.Foreground = Brushes.Black;
-                passBox.ToolTip = null;
-                passBox.Foreground = Brushes.Black;
-                passBox_2.ToolTip = null;
-                passBox_2.Foreground = Brushes.Black;
                 textBoxEmail.ToolTip = null;
                 textBoxEmail.Foreground = Brushes.Black;
-
+                i--;
+            }
+            if (i == 0)
+            {
                 MessageBox.Show("Все круто");
             }
         }
