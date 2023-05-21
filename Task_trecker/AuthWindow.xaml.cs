@@ -46,24 +46,32 @@ namespace Task_trecker
         {
             string login = textBoxLogin.Text.Trim();
             string password = passBox.Password.Trim();
+            int i = 2;
 
             if (login.Length < 5)
             {
                 textBoxLogin.ToolTip = "Некорректный логин!";
                 textBoxLogin.Foreground = Brushes.Red;
             }
-            else if (password.Length < 8)
+            else
+            {
+                textBoxLogin.ToolTip = null;
+                textBoxLogin.Foreground = Brushes.Black;
+                i--;
+            }
+            if (password.Length < 8)
             {
                 passBox.ToolTip = "Некорректный пароль!";
                 passBox.Foreground = Brushes.Red;
             }
             else
             {
-                textBoxLogin.ToolTip = null;
-                textBoxLogin.Foreground = Brushes.Black;
                 passBox.ToolTip = null;
                 passBox.Foreground = Brushes.Black;
-
+                i--;
+            }
+            if (i == 0)
+            {
                 MessageBox.Show("Все круто");
             }
         }
