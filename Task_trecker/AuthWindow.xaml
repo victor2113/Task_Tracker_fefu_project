@@ -62,7 +62,7 @@
                     <DropShadowEffect BlurRadius="15" Color="#FF60899D" ShadowDepth="1"/>
                 </Image.Effect>
             </Image>
-            <TextBlock Margin="0" HorizontalAlignment="Center" Text="Task Tracker" 
+            <TextBlock HorizontalAlignment="Center" Text="Task Tracker" 
                        FontFamily="Impact" FontSize="16" VerticalAlignment="Top"/>
         </Grid>
 

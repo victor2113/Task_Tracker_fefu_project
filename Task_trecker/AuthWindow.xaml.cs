@@ -72,7 +72,21 @@ namespace Task_trecker
             }
             if (i == 0)
             {
-                MessageBox.Show("Все круто");
+                User user = new(login , password);
+                user.Sign_in();
+                if (user.user_entry)
+                {
+                    TestWindow testwindow = new TestWindow();
+                    testwindow.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("1232");
+                    textBoxLogin.Foreground = Brushes.Red;
+                    passBox.Foreground = Brushes.Red;
+                }
+
             }
         }
 

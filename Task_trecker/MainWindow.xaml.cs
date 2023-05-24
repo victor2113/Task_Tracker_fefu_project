@@ -97,7 +97,12 @@ namespace Task_trecker
             }
             if (i == 0)
             {
-                MessageBox.Show("Все круто");
+                User user = new User(login, password, email);
+                user.Sign_up();
+                TestWindow testwindow= new TestWindow();
+                testwindow.Show(); 
+                Close();
+                
             }
         }
 

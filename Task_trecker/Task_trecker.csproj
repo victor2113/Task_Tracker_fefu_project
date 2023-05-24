@@ -8,8 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="checklist.png" />
+    <None Remove="minus %281%29.png" />
+    <None Remove="minus.png" />
+    <None Remove="x-button %281%29.png" />
+    <None Remove="x-button.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Source\minus.png" />
+    <Resource Include="Source\minus %281%29.png" />
+    <Resource Include="Source\checklist.png" />
+    <Resource Include="Source\x-button %281%29.png" />
+    <Resource Include="Source\x-button.png" />
   </ItemGroup>
 
 </Project>
